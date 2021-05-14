@@ -1,0 +1,193 @@
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h2>Check Out</h2>
+      <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+        <!-- Customer Details -->
+        <div formGroupName="customer">
+          <h3>Customer Details</h3>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">First Name:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="firstName"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Last Name:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="lastName"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Email ID:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="email"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div formGroupName="shippingAddress">
+          <h3>Shipping Address Details</h3>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Street:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="street"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">City:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="city"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Country:</label>
+            <div class="col-6">
+              <div>
+                <select formControlName="country" class="form-control">
+                  <option value="INDIA">INDIA</option>
+                  <option value="UK">UK</option>
+                  <option value="US">US</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">State:</label>
+            <div class="col-6">
+              <div>
+                <select formControlName="state" class="form-control">
+                  <option value="AP">AP</option>
+                  <option value="TS">TS</option>
+                  <option value="UP">UP</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Zipcode:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="zipCode"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Add check box to copy shipping address to billing address-->
+        <div class="form-check">
+          <label>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              (change)="copyShippingAddressToBillingAddress($event)"
+            />
+            Billing Address same as Shipping Address
+          </label>
+        </div>
+        <!-- Billing Address -->
+        <div formGroupName="billingAddress">
+          <h3>Billing Address Details</h3>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Street:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="street"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">City:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="city"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Country:</label>
+            <div class="col-6">
+              <div>
+                <select formControlName="country" class="form-control">
+                  <option value="INDIA">INDIA</option>
+                  <option value="UK">UK</option>
+                  <option value="US">US</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">State:</label>
+            <div class="col-6">
+              <div>
+                <select formControlName="state" class="form-control">
+                  <option value="AP">AP</option>
+                  <option value="TS">TS</option>
+                  <option value="UP">UP</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Zipcode:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="zipCode"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
