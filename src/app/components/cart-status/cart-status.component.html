@@ -1,0 +1,7 @@
+<li class="nav-item">
+  <a routerLink="/cart-details">
+    <span class="text-white">{{ totalPrice | currency: "INR" }}</span>
+    <span class="fa fa-shopping-cart fa-lg text-white"> </span>
+    <span class="badge badge-pill badge-danger">{{ totalQuantity }}</span>
+  </a>
+</li>
