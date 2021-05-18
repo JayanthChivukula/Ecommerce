@@ -416,85 +416,85 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-4 col-form-label">Card Number:</label>
-          <div class="col-6">
-            <div>
-              <input
-                type="text"
-                formControlName="cardNumber"
-                class="form-control"
-              />
-              <div
-                *ngIf="
-                  creditCardNumber.invalid &&
-                  (creditCardNumber.dirty || creditCardNumber.touched)
-                "
-                class="alert alert-danger mt-1"
-              >
-                <div *ngIf="creditCardNumber.errors.required">
-                  Credit Card number is required
-                </div>
-                <div *ngIf="creditCardNumber.errors.pattern">
-                  Credit Card number must be 16 digits
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-4 col-form-label">Security Code:</label>
-          <div class="col-6">
-            <div>
-              <input
-                type="text"
-                formControlName="securityCode"
-                class="form-control"
-              />
-              <div
-                *ngIf="
-                  creditCardSecurityCode.invalid &&
-                  (creditCardSecurityCode.dirty ||
-                    creditCardSecurityCode.touched)
-                "
-                class="alert alert-danger mt-1"
-              >
-                <div *ngIf="creditCardSecurityCode.errors.required">
-                  Security Code is required
-                </div>
-                <div *ngIf="creditCardSecurityCode.errors.pattern">
-                  Security code must be 3 digts
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Card Number:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="cardNumber"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="
+                    creditCardNumber.invalid &&
+                    (creditCardNumber.dirty || creditCardNumber.touched)
+                  "
+                  class="alert alert-danger mt-1"
+                >
+                  <div *ngIf="creditCardNumber.errors.required">
+                    Credit Card number is required
+                  </div>
+                  <div *ngIf="creditCardNumber.errors.pattern">
+                    Credit Card number must be 16 digits
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-4 col-form-label">Expiration Month:</label>
-          <div class="col-6">
-            <div>
-              <select formControlName="expirationMonth" class="form-control">
-                <option *ngFor="let month of creditCardMonths">
-                  {{ month }}
-                </option>
-              </select>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Security Code:</label>
+            <div class="col-6">
+              <div>
+                <input
+                  type="text"
+                  formControlName="securityCode"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="
+                    creditCardSecurityCode.invalid &&
+                    (creditCardSecurityCode.dirty ||
+                      creditCardSecurityCode.touched)
+                  "
+                  class="alert alert-danger mt-1"
+                >
+                  <div *ngIf="creditCardSecurityCode.errors.required">
+                    Security Code is required
+                  </div>
+                  <div *ngIf="creditCardSecurityCode.errors.pattern">
+                    Security code must be 3 digts
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-4 col-form-label">Expiration Year</label>
-          <div class="col-6">
-            <div>
-              <select
-                formControlName="expirationYear"
-                class="form-control"
-                (change)="handleMonthsAndYears()"
-              >
-                <option *ngFor="let year of creditCardYears">
-                  {{ year }}
-                </option>
-              </select>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Expiration Month:</label>
+            <div class="col-6">
+              <div>
+                <select formControlName="expirationMonth" class="form-control">
+                  <option *ngFor="let month of creditCardMonths">
+                    {{ month }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Expiration Year</label>
+            <div class="col-6">
+              <div>
+                <select
+                  formControlName="expirationYear"
+                  class="form-control"
+                  (change)="handleMonthsAndYears()"
+                >
+                  <option *ngFor="let year of creditCardYears">
+                    {{ year }}
+                  </option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
