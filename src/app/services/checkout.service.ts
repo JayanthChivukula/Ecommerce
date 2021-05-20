@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Observer, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Country } from '../common/country';
+import { Purchase } from '../common/purchase';
 import { State } from '../common/state';
 
 @Injectable({
@@ -11,8 +12,13 @@ import { State } from '../common/state';
 export class CheckoutService {
   statesUrl = 'http://localhost:8080/api/states';
   countriesUrl = 'http://localhost:8080/api/countries';
+  purchaseUrl = 'http://localhost:8080/api/checkout/purchase';
 
   constructor(private httpClient: HttpClient) {}
+
+  placeOrder(purchase: Purchase): Observable<Purchase> {
+    return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);
+  }
 
   getCreditCardMonths(startMonth: number): Observable<number[]> {
     let data: number[] = [];
