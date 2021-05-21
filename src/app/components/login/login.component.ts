@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
         issuer: AppConfig.oidc.issuer,
         scopes: AppConfig.oidc.scopes,
       },
+      features: {
+        registration: true,
+      },
     });
   }
 

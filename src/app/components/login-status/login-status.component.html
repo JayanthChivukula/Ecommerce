@@ -1,1 +1,30 @@
-<p>login-status works!</p>
+<li class="nav-item dropdown" *ngIf="isAuthenticated">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="navbarDropdown"
+    role="button"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span *ngIf="isAuthenticated">My Account</span>
+    <span *ngIf="!isAuthenticated">Login</span>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <span *ngIf="isAuthenticated && userFullName">
+      <span style="font-weight: bold">{{ userFullName }}</span>
+    </span>
+    <button
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      class="dropdown-item btn btn-outline-success"
+    >
+      Logout
+    </button>
+  </div>
+</li>
+
+<li class="nav-item" *ngIf="!isAuthenticated">
+  <a class="nav-link" routerLink="/login">Login</a>
+</li>

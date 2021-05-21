@@ -16,6 +16,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+import myAppConfig from './config/app-config';
+import { Router } from '@angular/router';
+
+const oktaConfig = Object.assign(
+  {
+    onAuthRequired: (injector) => {
+      const router = injector.get(Router);
+      router.navigate(['/login']);
+    },
+  },
+  myAppConfig.oidc
+);
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +48,9 @@ import { LoginStatusComponent } from './components/login-status/login-status.com
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
+    OktaAuthModule,
   ],
-  providers: [],
+  providers: [{ provide: OKTA_CONFIG, useValue: oktaConfig }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
