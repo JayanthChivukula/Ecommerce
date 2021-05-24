@@ -17,6 +17,13 @@
     </span>
     <button
       *ngIf="isAuthenticated"
+      routerLink="/order-history"
+      class="dropdown-item btn"
+    >
+      Orders
+    </button>
+    <button
+      *ngIf="isAuthenticated"
       (click)="logout()"
       class="dropdown-item btn btn-outline-success"
     >
