@@ -23,7 +23,7 @@ import { OrderHistoryComponent } from './components/order-history/order-history.
 
 const oktaConfig = Object.assign(
   {
-    onAuthRequired: (injector) => {
+    onAuthRequired: (oktaAuth, injector) => {
       const router = injector.get(Router);
       router.navigate(['/login']);
     },

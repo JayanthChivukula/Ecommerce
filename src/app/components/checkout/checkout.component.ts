@@ -26,6 +26,8 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
+  storage: Storage = sessionStorage;
+
   constructor(
     private formBuilder: FormBuilder,
     private checkoutService: CheckoutService,
@@ -43,13 +45,15 @@ export class CheckoutComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    const theEmail = this.storage.getItem('userEmail');
+
     this.reviewCartDetails();
 
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: ['', [Validators.required, Validators.minLength(2)]],
         lastName: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.email]],
+        email: [theEmail, [Validators.required, Validators.email]],
       }),
       shippingAddress: this.formBuilder.group({
         street: ['', [Validators.required, Validators.minLength(2)]],
