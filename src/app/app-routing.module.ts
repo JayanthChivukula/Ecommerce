@@ -3,12 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { SpecialOffersComponent } from './components/special-offers/special-offers.component';
 
 const routes: Routes = [
+  { path: 'contact', component: ContactComponent },
+  {
+    path: 'special-offers',
+    component: SpecialOffersComponent,
+    canActivate: [OktaAuthGuard],
+  },
   {
     path: 'order-history',
     component: OrderHistoryComponent,

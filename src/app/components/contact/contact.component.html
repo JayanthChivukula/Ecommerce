@@ -1,0 +1,67 @@
+<div class="container mt-5 pt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <form [formGroup]="contactFormGroup" (ngSubmit)="onSubmit($event)">
+        <div formGroupName="contact">
+          <h2>Contact US</h2>
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Name</label>
+            <div class="col-md-8">
+              <input
+                formControlName="userName"
+                name="userName"
+                type="text"
+                class="form-control"
+              />
+              <div
+                *ngIf="userName.invalid && userName.touched"
+                class="alert alert-danger mt-1"
+              >
+                <div *ngIf="userName.errors.required">Name is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Email</label>
+            <div class="col-md-8">
+              <input
+                formControlName="userEmail"
+                name="userEmail"
+                type="text"
+                class="form-control"
+              />
+              <div
+                *ngIf="userEmail.invalid && userEmail.touched"
+                class="alert alert-danger mt-1"
+              >
+                <div *ngIf="userEmail.errors.required">Email is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Message</label>
+            <div class="col-md-8">
+              <textarea
+                formControlName="message"
+                name="message"
+                type="text"
+                class="form-control"
+              ></textarea>
+              <div
+                *ngIf="message.invalid && message.touched"
+                class="alert alert-danger mt-1"
+              >
+                <div *ngIf="message.errors.required">Message is required</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-info">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
